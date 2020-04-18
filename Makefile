@@ -1,10 +1,9 @@
-# This is adapted from https://github.com/thockin/go-build-template
 
 # The binary to build (just the basename).
-BIN := blueprint
+BIN := portscan
 
 # Where to push the docker image.
-REGISTRY ?= docker.pkg.github.com/martinheinz/go-project-blueprint
+REGISTRY ?= grande2017/portscanner
 
 # This version-strategy uses git tags to set the version string
 VERSION := $(shell git describe --tags --always --dirty)
