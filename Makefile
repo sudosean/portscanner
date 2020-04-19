@@ -3,7 +3,7 @@
 BIN := portscan
 
 # Where to push the docker image.
-REGISTRY ?= grande2017/portscanner
+REGISTRY ?= grande2017
 
 # This version-strategy uses git tags to set the version string
 VERSION := $(shell git describe --tags --always --dirty)
@@ -30,7 +30,7 @@ TAG := $(VERSION)__$(OS)_$(ARCH)
 
 BUILD_IMAGE ?= golang:1.12-alpine
 # Tweaked image used for test runs (see `test.Dockerfile`)
-TEST_IMAGE ?= martinheinz/golang:1.12-alpine-test
+TEST_IMAGE ?= golang:1.12-alpine
 
 # If you want to build all binaries, see the 'all-build' rule.
 # If you want to build all containers, see the 'all-container' rule.
