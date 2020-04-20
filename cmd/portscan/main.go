@@ -7,6 +7,7 @@ import (
 )
 
 func main() {
+	fmt.Println("Scanning ports")
 	ports := make(chan int, 100)
 	results := make(chan int)
 	var openports []int
@@ -16,7 +17,7 @@ func main() {
 	}
 	/*
 		send to the workers in a separate goroutine
-		because the results-gathering loop (below) neds to start
+		because the results-gathering loop (below) needs to start
 		before more than 100 items of work can continue
 	 */
 	go func() {
@@ -49,7 +50,7 @@ func main() {
 // closed, send a zero (0) and if it's open send the port
 func worker(ports, results chan int){
 	for p := range ports {
-		address := fmt.Sprintf("scanme.nmap:%d", p)
+		address := fmt.Sprintf("scanme.nmap.com:%d", p)
 		conn, err := net.Dial("tcp", address)
 		if err != nil {
 			results <- 0
